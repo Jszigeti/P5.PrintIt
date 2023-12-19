@@ -23,8 +23,8 @@
 	// initialisation de l'index
 	let i = 0
 
-	// ajout des flèches du carrousel
-	let banner = document.querySelector("#banner")
+	// intégration des flèches du carrousel
+	const banner = document.querySelector("#banner")
 	const arrowLeft = document.createElement("img")
 	const arrowRight = document.createElement("img")
 	banner.appendChild(arrowLeft)
@@ -41,7 +41,7 @@
 		// décrémentation index
 		i--
 		// retour de l'index à 3 quand inférieur à 0
-		if (i <= -1) {
+		if (i < 0) {
 			i = slides.length - 1
 		}
 		// appel fonction carrousel
@@ -60,10 +60,10 @@
 		carrousel()
 	})
 
-	// intégration bullet points
+	// intégration des bullet points
 	for (i in slides) {
-		let dotsLine = document.querySelector(".dots")
-		let dot = document.createElement("span")
+		const dotsLine = document.querySelector(".dots")
+		const dot = document.createElement("span")
 		dotsLine.appendChild(dot)
 		dot.classList.add("dot")
 	}
@@ -81,20 +81,20 @@
 
 	// fonction changement bullet point sélectionné
 	function changeBullet() {
-		let dotsList = document.querySelectorAll(".dot")
+		const dotsList = document.querySelectorAll(".dot")
 		dotsList.forEach((dot) => dot.classList.remove("dot_selected"))
 		dotsList[i].classList.add("dot_selected")
 	}
 
 	// fonction changement image carrousel
 	function changeImage() {
-		let bannerImg = document.querySelector(".banner-img")
+		const bannerImg = document.querySelector(".banner-img")
 		bannerImg.src = "./assets/images/slideshow/" + slides[i].image
 	}
 
 	// fonction changement texte carrousel
 	function changeTagLine() {
-		let bannerTagLine = document.querySelector("#banner p")
+		const bannerTagLine = document.querySelector("#banner p")
 		bannerTagLine.innerHTML = slides[i].tagLine
 	}
 }
