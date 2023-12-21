@@ -20,10 +20,10 @@
 		}
 	]
 
-	// initialisation de l'index
+	// initialisation index
 	let i = 0
 
-	// intégration des flèches du carrousel
+	// intégration flèches carrousel
 	const banner = document.querySelector("#banner")
 	const arrowLeft = document.createElement("img")
 	const arrowRight = document.createElement("img")
@@ -36,11 +36,11 @@
 	arrowRight.src = "./assets/images/arrow_right.png"
 	arrowRight.alt = "icone flèche de droite"
 
-	// eventListener flèche de gauche
+	// eventListener flèche gauche
 	arrowLeft.addEventListener("click", () => {
 		// décrémentation index
 		i--
-		// retour de l'index à 3 quand inférieur à 0
+		// retour index à 3 si < 0
 		if (i < 0) {
 			i = slides.length - 1
 		}
@@ -48,11 +48,11 @@
 		carrousel()
 	})
 
-	// eventListener flèche de droite
+	// eventListener flèche droite
 	arrowRight.addEventListener("click", () => {
 		// incrémentation index
 		i++
-		// retour de l'index à 0 quand supérieur à longueur liste
+		// retour index à 0 si > longueur tableau
 		if (i > slides.length - 1) {
 			i = 0
 		}
@@ -60,15 +60,15 @@
 		carrousel()
 	})
 
-	// intégration des bullet points
-	for (i in slides) {
+	// intégration bullet points
+	for (a in slides) {
 		const dotsLine = document.querySelector(".dots")
 		const dot = document.createElement("span")
 		dotsLine.appendChild(dot)
 		dot.classList.add("dot")
 	}
 
-	// initialisation du premier "dot_selected"
+	// initialisation premier "dot_selected"
 	dot = document.querySelector(".dots span")
 	dot.classList.add("dot_selected")
 
